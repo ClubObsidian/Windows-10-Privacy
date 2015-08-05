@@ -1,0 +1,9 @@
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\bin\Debug\Windows 10 Privacy.exe.config
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\bin\Debug\Windows 10 Privacy.exe
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\bin\Debug\Windows 10 Privacy.pdb
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\obj\Debug\Windows 10 Privacy.csprojResolveAssemblyReference.cache
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\obj\Debug\Windows_10_Privacy.Form1.resources
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\obj\Debug\Windows_10_Privacy.Properties.Resources.resources
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\obj\Debug\Windows 10 Privacy.csproj.GenerateResource.Cache
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\obj\Debug\Windows 10 Privacy.exe
+c:\users\vm\documents\visual studio 2015\Projects\Windows 10 Privacy\Windows 10 Privacy\obj\Debug\Windows 10 Privacy.pdb
