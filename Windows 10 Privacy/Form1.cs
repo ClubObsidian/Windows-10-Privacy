@@ -13,6 +13,7 @@ using System.Diagnostics;
     Inspired by the program here: https://github.com/10se1ucgo/DisableWinTracking
     I decided to simplify the process and make it in C# because I have a strong disdain for python
     Credit for finding all the registery keys and ips to block goes to the author of the code linked above
+    Additional help from this thread: http://answers.microsoft.com/en-us/insider/forum/insider_wintp-insider_files/how-to-uninstall-onedrive-completely-in-windows-10/e735a3b8-09f1-40e2-89c3-b93cf7fe6994?auth=1
 */
 
 
@@ -32,17 +33,83 @@ namespace Windows_10_Privacy
             this.blockHosts();
             this.stopDmwappushsvc();
             this.stopTrackingService();
+            if(this.checkBox1.CheckState == CheckState.Checked)
+                this.disableOneDrive();
             MessageBox.Show("Done");
+        }
+
+        private void disableOneDrive()
+        {
+            this.logInfo("Disabling OneDrive");
+            Process[] procs = Process.GetProcessesByName("OneDrive");
+            if (procs.Length > 0)
+            {
+                Process process = procs[0];
+                if (process != null)
+                {
+                    process.Kill();
+                }
+            }
+
+            string x64Path = "C:\\Windows\\SysWOW64";
+
+
+            try
+            {
+                Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", "OneDrive", "");
+                this.logInfo("Deleting OneDrive");
+                if (!File.Exists(x64Path))
+                {
+                    RegistryKey reg = Registry.ClassesRoot.OpenSubKey("CLSID", true);
+                    if (reg != null)
+                        reg.DeleteSubKeyTree("{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                }
+                else if(File.Exists(x64Path))
+                {
+                    RegistryKey reg2 = Registry.ClassesRoot.OpenSubKey("Wow6432Node\\CLSID", true);
+                    if (reg2 != null)
+                        reg2.DeleteSubKeyTree("{018D5C66-4533-4307-9B53-224DE2ED1FE6}");
+                }
+                
+               
+            }
+            catch (Exception ex)
+            {
+                this.logInfo("Could not disable OneDrive");
+            }
+            try
+            {
+                string user = Environment.UserName;
+                string path = @"C:\Users\" + user + @"\AppData\Local\Microsoft\OneDrive\";
+                this.logInfo(path);
+                 foreach(string file in Directory.GetFiles(path))
+                {
+                    this.logInfo(file);
+                    FileStream theFile = File.Open(file, FileMode.Open);
+                    if(theFile.CanWrite)
+                    {
+                        theFile.Close();
+                        theFile = null;
+                        File.Delete(file);
+                    }
+                    if(theFile != null)
+                     theFile.Close();
+                }
+            }
+            catch(IOException e)
+            {
+                Console.Write(e.StackTrace);
+            }
         }
 
         private void disableAutoLogger()
         {
-            this.logInfo("Disabling autologger");
+            this.logInfo("Disabling AutoLogger");
             try
             {
                 FileStream stream = File.Open("C:\\ProgramData\\Microsoft\\Diagnosis\\ETLLogs\\AutoLogger\\AutoLogger-Diagtrack-Listener.etl", FileMode.Open);
                 stream.Close();
-                System.Diagnostics.Process.Start("CMD.exe", "echo y | cacls C:\\ProgramData\\Microsoft\\Diagnosis\\ETLLogs\\AutoLogger\\AutoLogger - Diagtrack - Listener.etl / d SYSTEM");
+                System.Diagnostics.Process.Start("echo y | cacls C:\\ProgramData\\Microsoft\\Diagnosis\\ETLLogs\\AutoLogger\\AutoLogger - Diagtrack - Listener.etl / d SYSTEM");
             }
             catch(IOException ex)
             {
@@ -137,6 +204,16 @@ namespace Windows_10_Privacy
         private void logInfo(string info)
         {
             this.richTextBox1.AppendText("[" + System.DateTime.UtcNow.ToString() + "] " + info + "\n");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://onedrive.live.com/about/en-us/download/");
         }
     }
 }
