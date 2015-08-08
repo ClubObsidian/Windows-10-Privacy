@@ -1,4 +1,4 @@
-﻿namespace Windows_10_Privacy
+namespace Windows_10_Privacy
 {
     partial class Form1
     {
