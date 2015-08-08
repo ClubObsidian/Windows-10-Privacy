@@ -1,3 +1,6 @@
+<html>
+<img src="https://i.imgur.com/NYlVYBZ.png"></img>
+</html>
 # Windows-10-Privacy
 Disables features in Windows 10 that are an invasion of privacy
 
@@ -5,7 +8,7 @@ Disables features in Windows 10 that are an invasion of privacy
 Click the get your privacy back button, optionally you can disable One Drive by using the additional option.
 
 #Want to reinstall One Drive?
-Click on the link on the program and re-install it.
+Click on the one drive link on the program and re-install it.
 
 #Find a bug?
 Report it on the issue tracker for this repo.
