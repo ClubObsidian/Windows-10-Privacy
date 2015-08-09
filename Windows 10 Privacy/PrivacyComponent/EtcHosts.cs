@@ -61,7 +61,6 @@ namespace WindowsTenPrivacy.PrivacyComponent
         private string endMark = "# ----- END WINDOWS 10 PRIVACY -----";
         private string etcHostsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers/etc/hosts");
 
-        // TODO: This method
         public bool AlreadyBlocked()
         {
             return File.ReadAllText(etcHostsPath).Contains(beginMark);
