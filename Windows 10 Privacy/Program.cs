@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Windows_10_Privacy
+namespace WindowsTenPrivacy
 {
     static class Program
     {
@@ -14,7 +14,7 @@ namespace Windows_10_Privacy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmMain());
         }
     }
 }

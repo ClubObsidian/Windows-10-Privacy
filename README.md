@@ -1,12 +1,16 @@
-<html>
-<img src="https://i.imgur.com/pIRPZpV.png"></img>
-</html>
+![Windows 10 Privacy](https://i.imgur.com/pIRPZpV.png)
 
-#How to use?
-Click the get your privacy back button, optionally you can delete one drive by using the option. The one drive option deletes all the data for one drive so make sure you have data backed up in a seperate location before using this option.
+# How do I use this?
+Run the program and click the **Get your privacy back** button. The "Remove OneDrive" option deletes all your OneDrive data, so make sure you have data backed up in a separate location before using this option!
 
-#Want to reinstall One Drive?
-Click on the one drive link on the program and re-install it.
+# Want to reinstall OneDrive?
+You can [download the OneDrive installer directly from Microsoft][2].
 
-#Find a bug?
+# Find a bug?
 Report it on the issue tracker for this repo.
+
+# License
+This program is released under the [GNU General Public License, version 2][1].
+
+[1]: LICENSE
+[2]: https://onedrive.live.com/about/en-us/download/
